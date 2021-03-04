@@ -12,6 +12,11 @@ type Student {
   email: String!
 }
 
+type Message {
+  status: Boolean!
+  message: String!
+}
+
 type Query {
   "Return all courses"
   getCourses: [Course]
@@ -52,8 +57,12 @@ type Mutation {
   createCourse(input: CourseInput!): Course
   "edit one course"
   editCourse(_id: ID!, input: CourseEditInput): Course
+  "Delete one course"
+  deleteCourse(_id: ID!): Message
   "Create one student"
   createStudent(input: StudentInput!): Student
   "edit Student"
   editStudent(_id: ID!, input: StudentEditInput): Student
+  "Delete one Student"
+  deleteStudent(_id: ID!): Message
 }
